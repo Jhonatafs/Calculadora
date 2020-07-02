@@ -11,6 +11,11 @@ import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
 public class CodFont extends JFrame {
+	
+	/*
+	 * Jhonata Flores Sande
+	 * Primeira API 100% funcional
+	 */
 	private static final long serialVersionUID = 1L;
 
 	private double num1, num2, calc;
@@ -206,7 +211,7 @@ public class CodFont extends JFrame {
 		/* Action */
 		getContentPane().add(botao_0);
 
-		JButton botao_virgula = new JButton(",");
+		JButton botao_virgula = new JButton(".");
 		botao_virgula.setBackground(new Color(6, 6, 6));
 		botao_virgula.setForeground(new Color(255, 255, 255));
 		botao_virgula.setFont(new Font("Noto Sans", Font.PLAIN, 25));
@@ -216,7 +221,7 @@ public class CodFont extends JFrame {
 		/* Action */
 		botao_virgula.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				numerosDaTela(',');
+				numerosDaTela('.');
 			}
 		});
 		/* Action */
@@ -365,14 +370,15 @@ public class CodFont extends JFrame {
 	}
 
 	public void numerosDaTela(char numero) {
-		String antigo = tela.getText();
+		antigo = tela.getText();
 		antigo = antigo + numero;
 		tela.setText(antigo);
 	}
 
 	public void getArmazenado() {
 		String x = antigo;
-		x = x + " " + operador;
+		String y = String.valueOf(operador);
+		x = x + " " + y;
 		armazenado.setText(x);
 	}
 
@@ -383,8 +389,13 @@ public class CodFont extends JFrame {
 	}
 
 	public void getNum1() {
-		num1 = Double.parseDouble(tela.getText());
-		tela.setText("");
+		if(tela.getText().equals("")) {
+			
+		} else {
+			num1 = Double.parseDouble(tela.getText());
+			tela.setText("");
+		}
+		
 	}
 
 	public void getNum2() {
